@@ -2,8 +2,8 @@
 (() => {
   const { reduceMotion } = window.CF;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const header = document.querySelector('.site-header');
-  const hdr = () => header?.offsetHeight || 0;
+  // pinned stages stick at their CSS `top` (0 now that the nav floats over them)
+  const pinTop = pin => parseFloat(getComputedStyle(pin.stage).top) || 0;
 
   // ---------- Hero parallax ----------
   const hero = document.querySelector('.hero');
@@ -44,7 +44,7 @@
   function progressOf(pin) {
     const r = pin.el.getBoundingClientRect();
     const dist = r.height - pin.stage.offsetHeight;
-    return dist > 0 ? clamp((hdr() - r.top) / dist, 0, 1) : 0;
+    return dist > 0 ? clamp((pinTop(pin) - r.top) / dist, 0, 1) : 0;
   }
 
   function setIndex(pin, idx) {
@@ -110,7 +110,7 @@
       it.style.cursor = 'pointer';
       it.addEventListener('click', () => {
         if (!isPinned(pin)) return;
-        const top = pin.el.getBoundingClientRect().top + scrollY - hdr();
+        const top = pin.el.getBoundingClientRect().top + scrollY - pinTop(pin);
         const dist = pin.el.offsetHeight - pin.stage.offsetHeight;
         scrollTo({ top: top + dist * ((i + .5) / pin.items.length), behavior: 'smooth' });
       });
