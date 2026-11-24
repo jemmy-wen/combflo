@@ -1,33 +1,35 @@
-# CombFlo 流程工廠（提案三）
+# CombFlo｜製造業流程優化服務
 
-以 3D 台灣傳統工廠呈現製造業流程「優化前／優化後」的互動網站，並導向流程盤點測驗與免費諮詢預約。
+像素風形象網站與「流程盤點」問卷。純靜態 HTML／CSS／JS，不需要建置。
 
-- 首頁 `/`：3D 鐵皮屋工廠（Three.js / React Three Fiber）。七個環節、17 個卡關點、13 位角色；可切換優化前後、白天黃昏、鳥瞰、協作線，點環節或人物會拉近並顯示說明卡片。
-- 測驗頁 `/quiz`：9 題流程盤點 → 結果 → 預約免費諮詢表單。
-- 表單 API `/api/lead`：驗證欄位後轉送至 Google Apps Script（寫入 Google 試算表）。
+## 頁面
 
-## 開發
+| 檔案 | 內容 |
+|---|---|
+| `dist/index.html` | 首頁：視差 hero、置頂捲動區塊（痛點疊卡、關卡地圖、案例橫向捲動） |
+| `dist/check.html` | 流程盤點：9 題 → 計分 → 四種結果卡（可存成圖片）→ 預約表單 → 送出後 A／B 版 |
+| `dist/privacy.html` | 隱私說明 |
+| `dist/illustrations.html` | 插畫素材總覽 |
+| `dist/components.html` | 早期元件提案（舊版樣式，僅供參考） |
+
+## 本機預覽
 
 ```bash
-npm install
-npm run dev      # http://localhost:4323
-npm run build
-npm test         # 計分邏輯單元測試
+cd dist && python3 -m http.server 8000
+# http://localhost:8000
 ```
 
-## 環境變數
+## 設定
 
-複製 `.env.example` 為 `.env` 後填入：
+`dist/site.js` 開頭：
 
-- `SHEETS_WEBHOOK_URL`、`SHEETS_WEBHOOK_SECRET`：Google Apps Script 網頁應用程式網址與共用密鑰（未設定時，送出的資料只會印在伺服器 log）
-- `PUBLIC_TURNSTILE_SITE_KEY`、`TURNSTILE_SECRET`：Cloudflare Turnstile（選用）
-- `PUBLIC_LINE_URL`：LINE 官方帳號連結（選用）
-- `PUBLIC_GA_ID`：GA4（選用）
+- `LINE_URL`：LINE 官方帳號連結。留空時所有「加入 LINE」按鈕都不顯示。
+- `FORM_ENDPOINT`：預約表單送出的 API。留空時為示意模式，送出一律視為成功、不會傳出資料。
 
-## 素材
+## 部署
 
-- `public/photos/`：環節照片，來源 Unsplash（攝影師署名見網站側欄底部）
-- `public/avatars/`：角色頭像；需求規格見 `docs/avatar-brief.md`
-- `docs/quiz-ux.md`：測驗頁的表單設計原則
+`vercel.json` 讓 Vercel 不執行建置，直接發布 `dist/`。
 
-廠房、人物與事件皆為示意，不對應任何一家真實企業。
+## 插畫
+
+素材清單、編號與規格見 `illustration-list.md`；插畫製作規則見 `AGENTS.md`。

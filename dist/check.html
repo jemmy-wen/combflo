@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>流程盤點｜CombFlo</title>
+<meta name="description" content="約 5 分鐘，9 題，看看你的工廠是哪一種流程角色，立即取得初步改善方向。">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="check.css">
+</head>
+<body class="page-check" data-screen="intro">
+
+<header class="site-header check-header">
+  <a class="brand" href="index.html" aria-label="回到 CombFlo 首頁"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>CombFlo</a>
+  <div class="hdr-progress" aria-hidden="true"><span class="hdr-bar"><i data-hdr-fill></i></span><span class="hdr-count" data-hdr-count>0 / 9</span></div>
+  <a class="hdr-home" href="index.html">回首頁</a>
+</header>
+
+<main>
+
+<!-- ================= INTRO ================= -->
+<section class="screen intro" data-screen-id="intro" aria-labelledby="intro-title">
+  <div class="container intro-grid">
+    <div class="intro-copy">
+      <p class="eyebrow">Process Check</p>
+      <h1 id="intro-title">流程盤點</h1>
+      <p class="lead">約 5 分鐘，9 題，全部點選即可，<br>只有最後一題需要打字。</p>
+      <ul class="intro-facts">
+        <li><b>5</b><span>分鐘</span></li>
+        <li><b>9</b><span>個問題</span></li>
+        <li><b>4</b><span>種角色</span></li>
+      </ul>
+      <div class="intro-actions">
+        <button class="btn lg" type="button" data-start><span class="btn-play" aria-hidden="true"></span><span data-start-label>開始流程盤點</span></button>
+        <button class="btn lg light" type="button" data-restart hidden>重新開始</button>
+      </div>
+      <p class="intro-resume" data-resume-note hidden></p>
+    </div>
+    <div class="intro-art" aria-hidden="true">
+      <div class="intro-stage">
+        <div class="sprite float q-float f1" data-slot="Q-01" style="--fd:-1s"><img src="assets/q-01-v1.png" alt="" loading="lazy"><span><b>Q-01</b>寫字板</span></div>
+        <div class="sprite float q-float f2" data-slot="Q-02" style="--fd:-2.2s;--fdur:4s"><img src="assets/s-05-v1.png" alt="" loading="lazy"><span><b>Q-02</b>問號泡泡</span></div>
+        <div class="sprite float q-float f3" data-slot="Q-03" style="--fd:-.6s;--fdur:6s"><img src="assets/q-03-v1.png" alt="" loading="lazy"><span><b>Q-03</b>鉛筆</span></div>
+        <div class="sprite float q-float f4" data-slot="Q-04" style="--fd:-3s;--fdur:5.4s"><img src="assets/q-04-v1.png" alt="" loading="lazy"><span><b>Q-04</b>碼錶</span></div>
+        <img class="intro-guide" src="assets/craftsman-approved.png" alt="">
+        <div class="intro-cards">
+          <div class="mini-card" style="--tint:var(--t1);--r:-14deg;--x:-150%"><span>？？？</span></div>
+          <div class="mini-card" style="--tint:var(--t2);--r:-5deg;--x:-62%"><span>？？？</span></div>
+          <div class="mini-card" style="--tint:var(--t3);--r:5deg;--x:26%"><span>？？？</span></div>
+          <div class="mini-card" style="--tint:var(--t4);--r:14deg;--x:114%"><span>？？？</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section class="screen quiz" data-screen-id="quiz" aria-label="流程盤點問題">
+  <div class="container quiz-wrap">
+    <div class="quiz-top">
+      <button class="back-btn" type="button" data-back><span aria-hidden="true">←</span> 上一題</button>
+      <ol class="seg" aria-hidden="true" data-seg></ol>
+    </div>
+
+    <div class="quiz-grid">
+      <aside class="quiz-guide" aria-hidden="true">
+        <div class="guide-bubble" data-tip>點一下就會自動到下一題。</div>
+        <img src="assets/craftsman-approved.png" alt="">
+      </aside>
+
+      <form class="q-card" data-qcard novalidate>
+        <p class="q-meta"><span class="q-no" data-qno>Q1</span><span class="q-kind" data-qkind></span></p>
+        <h2 class="q-title" id="q-title" data-qtitle></h2>
+        <div class="q-options" data-options role="group" aria-labelledby="q-title"></div>
+        <p class="q-feedback" data-feedback aria-live="polite"></p>
+        <div class="q-actions" data-actions hidden>
+          <button class="btn" type="submit" data-next>下一題 <span class="btn-arrow" aria-hidden="true">→</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOADING ================= -->
+<section class="screen loading" data-screen-id="loading" aria-live="polite">
+  <div class="loading-card" aria-hidden="true">
+    <span class="lc-logo"><span class="brand-mark"><i></i><i></i><i></i><i></i></span></span>
+    <b>？？？</b>
+  </div>
+  <p class="loading-text">正在整理你的工廠流程圖鑑…</p>
+  <span class="loading-bar"><i></i></span>
+</section>
+
+<!-- ================= RESULT ================= -->
+<section class="screen result" data-screen-id="result" aria-labelledby="result-page-title">
+  <div class="result-band">
+    <div class="container">
+      <p class="eyebrow">Your Factory Profile</p>
+      <h1 id="result-page-title">你的流程盤點結果</h1>
+    </div>
+  </div>
+
+  <div class="container result-layout">
+    <!-- Result card (exported as image) -->
+    <article class="r-card" id="r-card" data-card>
+      <header class="r-head">
+        <span class="r-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>CombFlo × 工廠流程圖鑑</span>
+        <span class="r-no" data-r="no">NO. 01 / 04</span>
+      </header>
+
+      <div class="r-hero">
+        <div class="r-id">
+          <p class="r-kicker">你的工廠流程角色是…</p>
+          <h2 class="r-name" data-r="name">老師傅型</h2>
+          <p class="r-role">角色<b data-r="role">經驗守門人</b></p>
+          <p class="r-tags" data-r="tags"></p>
+          <p class="r-quote" data-r="summary"></p>
+        </div>
+        <div class="r-portrait">
+          <div class="r-stage"><div class="sprite ground r-sprite" data-r="portrait"><span></span></div></div>
+        </div>
+      </div>
+
+      <div class="r-priority"><span>優先方向</span><b data-r="priority"></b></div>
+
+      <section class="r-sec">
+        <h3 class="r-h">你的流程概況</h3>
+        <div class="meters" data-r="meters"></div>
+        <p class="r-note">前兩項越低越好；資料連通度越高越好。</p>
+      </section>
+
+      <div class="r-two">
+        <section class="r-sec">
+          <h3 class="r-h">工廠日常裡的你</h3>
+          <p data-r="daily"></p>
+        </section>
+        <section class="r-sec">
+          <h3 class="r-h">下一步指南</h3>
+          <p data-r="guide"></p>
+        </section>
+      </div>
+
+      <section class="r-first">
+        <span class="r-first-no">#01</span>
+        <div>
+          <h3>先從這一件事開始</h3>
+          <p data-r="first"></p>
+        </div>
+      </section>
+
+      <p class="r-q7" data-r="q7" hidden>你提到買過系統卻用不順。這通常不是系統本身的問題，而是系統沒有配合你的流程。</p>
+
+      <footer class="r-foot">依本次問卷回答整理，供改善方向參考；不是診斷，也不是對個人能力的評分。</footer>
+    </article>
+
+    <!-- Side rail -->
+    <aside class="r-side">
+      <div class="r-actions">
+        <button class="btn dark block" type="button" data-save>儲存結果卡片</button>
+        <p class="r-actions-note">存成圖片，方便轉給廠長或夥伴</p>
+        <button class="btn light block" type="button" data-retake>重新盤點</button>
+      </div>
+      <div class="book-card on-dark">
+        <div class="sprite float book-pop" data-slot="F-01" style="--fdur:4s" aria-hidden="true"><img src="assets/f-01-v1.png" alt="" loading="lazy"><span><b>F-01</b>手機＋LINE 泡泡</span></div>
+        <p class="eyebrow">Free Call</p>
+        <h3>免費訪談</h3>
+        <p>約 15 分鐘，電話或 LINE，聊聊你的現況。</p>
+        <a class="btn block" href="#contact">預約免費諮詢</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ================= CONTACT FORM ================= -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-panel" data-contact-panel>
+        <div class="contact-intro">
+          <p class="eyebrow">Next Step</p>
+          <h2 id="contact-title">想知道你的流程，<br>下一步先動哪裡？</h2>
+          <p class="lead">留下聯絡方式，我們團隊會視工作空檔主動與你聯繫，先聊聊你的現況（免費）。如果適合，再安排免費到廠視察。</p>
+          <div class="contact-stage" aria-hidden="true"><div class="sprite ground contact-pop" data-slot="F-02"><img class="character-sticker" src="assets/f-02-v1.png" alt="" loading="lazy"><span><b>F-02</b>師傅遞出名片</span></div><div class="sprite float contact-mail" data-slot="F-04" style="--fdur:4.6s"><img src="assets/f-04-v1.png" alt="" loading="lazy"><span><b>F-04</b>飛出的信封</span></div></div>
+        </div>
+
+        <form class="cform" data-form novalidate>
+          <div class="field">
+            <label for="f-company">公司名稱<em>必填</em></label>
+            <input id="f-company" name="company" autocomplete="organization" required>
+            <small class="err" data-err="company"></small>
+          </div>
+          <div class="field">
+            <label for="f-name">稱呼與角色<em>必填</em></label>
+            <input id="f-name" name="name" placeholder="例如：王先生／廠長" required>
+            <small class="err" data-err="name"></small>
+          </div>
+          <div class="field">
+            <label for="f-contact">LINE ID 或電話<em>必填</em></label>
+            <input id="f-contact" name="contact" autocomplete="tel" required>
+            <small class="err" data-err="contact"></small>
+          </div>
+
+          <fieldset class="field chips-field">
+            <legend>方便聯絡的時段<em class="optional">選填</em></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="time" value="平日上午"><span>平日上午</span></label>
+              <label class="chip"><input type="radio" name="time" value="平日下午"><span>平日下午</span></label>
+              <label class="chip"><input type="radio" name="time" value="平日晚上"><span>平日晚上</span></label>
+              <label class="chip"><input type="radio" name="time" value="都可以"><span>都可以</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field chips-field">
+            <legend>公司所在地<em>必填</em></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="city" value="台北市" required><span>台北市</span></label>
+              <label class="chip"><input type="radio" name="city" value="新北市"><span>新北市</span></label>
+              <label class="chip"><input type="radio" name="city" value="基隆市"><span>基隆市</span></label>
+              <label class="chip"><input type="radio" name="city" value="桃園市"><span>桃園市</span></label>
+              <label class="chip"><input type="radio" name="city" value="其他縣市"><span>其他縣市</span></label>
+            </div>
+            <small class="err" data-err="city"></small>
+          </fieldset>
+
+          <fieldset class="field chips-field">
+            <legend>公司人數<em>必填</em></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="size" value="30 人以下" required><span>30 人以下</span></label>
+              <label class="chip"><input type="radio" name="size" value="30–50 人"><span>30–50 人</span></label>
+              <label class="chip"><input type="radio" name="size" value="51–100 人"><span>51–100 人</span></label>
+              <label class="chip"><input type="radio" name="size" value="100 人以上"><span>100 人以上</span></label>
+            </div>
+            <small class="err" data-err="size"></small>
+          </fieldset>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required>
+            <span class="box" aria-hidden="true"></span>
+            <span>我同意時行創意僅為聯絡與評估是否適合試辦，使用我留下的資料。<a href="privacy.html" target="_blank" rel="noopener">隱私說明</a></span>
+          </label>
+          <small class="err" data-err="consent"></small>
+
+          <div class="submit-row">
+            <button class="btn lg" type="submit" data-submit>留下聯絡方式</button>
+            <p>試辦期名額有限，我們會依序聯繫。</p>
+          </div>
+          <p class="form-fail" data-fail role="alert" hidden></p>
+        </form>
+      </div>
+
+      <!-- After submit -->
+      <div class="thanks on-dark" data-thanks hidden tabindex="-1">
+        <div class="thanks-stage" aria-hidden="true"><div class="sprite ground thanks-pop" data-slot="F-03"><img class="character-sticker" src="assets/f-03-v1.png" alt="" loading="lazy"><span><b>F-03</b>師傅比讚</span></div></div>
+        <div class="thanks-copy">
+          <p class="eyebrow">Received</p>
+          <h2 data-thanks-title></h2>
+          <p data-thanks-body></p>
+          <a class="btn line" data-line hidden href="#" target="_blank" rel="noopener">加入 LINE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>CombFlo</a>
+        <p class="footer-tag">梳理流程，順出產能</p>
+      </div>
+      <nav class="footer-links" aria-label="頁尾連結">
+        <a href="check.html">流程盤點</a>
+        <a href="index.html#cases">經典案例</a>
+        <a data-line hidden href="#" target="_blank" rel="noopener">LINE 官方帳號</a>
+        <a href="privacy.html">隱私說明</a>
+      </nav>
+    </div>
+    <div class="footer-bottom"><span>© 2026 時行創意有限公司</span><span class="pixel-note">MADE FOR FACTORIES IN TAIWAN</span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="check.js"></script>
+</body>
+</html>
