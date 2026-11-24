@@ -172,7 +172,7 @@
 .pilot-copy .h2{margin:18px 0 30px}
 .pilot-ticket{right:56px;top:-66px;width:190px;height:116px;rotate:7deg}
 .pilot-confetti{left:34%;top:-40px;width:130px;height:80px}
-.pilot-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0}
+.pilot-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0}
 .pilot-stats>div{padding:20px 20px 24px;border-radius:26px;background:#ffffff14;transition:background-color .3s,transform .4s var(--spring),opacity .8s var(--ease)}
 .pilot-stats>div.in:hover{background:#ffffff20;transform:translateY(-4px)}
 .ps-icon{width:58px;height:58px;margin-bottom:14px}
@@ -218,7 +218,9 @@
 .cases-note{font-size:13px;color:var(--muted);line-height:1.8}
 .track-bar{height:6px;border-radius:var(--pill);background:#223e3c18;overflow:hidden}
 .track-bar i{display:block;height:100%;width:calc(8% + var(--p,0) * 92%);border-radius:var(--pill);background:var(--orange)}
-.track-viewport{overflow:hidden;padding:84px 0 40px;margin-top:-50px}
+/* clip (not hidden): a clipped box isn't a scroll container, so a scrollLeft left over
+   from the mobile swipe layout can't stack on top of the JS transform */
+.track-viewport{overflow:hidden;overflow:clip;padding:84px 0 40px;margin-top:-50px}
 .track{display:flex;gap:28px;width:max-content;padding:0 max(32px,calc((100vw - 1200px) / 2 + 32px));will-change:transform}
 .case-card{flex:none;width:min(800px,78vw);display:grid;grid-template-columns:250px 1fr;border-radius:36px;background:var(--paper);box-shadow:var(--sh-2);
   opacity:.5;transform:scale(.95);transition:opacity .5s var(--ease),transform .6s var(--ease)}
@@ -339,11 +341,13 @@
 
   .pilot{padding:80px 0 96px}
   .pilot-panel{padding:56px 22px 24px;border-radius:34px;gap:28px}
-  .pilot-stats{gap:8px}
-  .pilot-stats>div{padding:14px 10px 16px;border-radius:20px}
-  .ps-icon{width:40px;height:40px;margin-bottom:8px}
-  .pilot-stats dd{font-size:15px}
-  .pilot-stats small{font-size:12px}
+  /* stats stack top-to-bottom: icon left, label + value right */
+  .pilot-stats{grid-template-columns:1fr;gap:10px}
+  .pilot-stats>div{display:grid;grid-template-columns:48px 1fr;grid-template-areas:"icon dt" "icon dd";column-gap:16px;align-items:center;padding:14px 18px;border-radius:20px}
+  .ps-icon{grid-area:icon;width:48px;height:48px;margin:0}
+  .pilot-stats dt{grid-area:dt}
+  .pilot-stats dd{grid-area:dd;margin-top:2px;font-size:18px}
+  .pilot-stats small{display:inline;margin-left:6px;font-size:13px}
   .pilot-stats .big{font-size:26px}
   .pilot-ticket{width:120px;height:74px;right:16px;top:-42px}
   .pilot-confetti{display:none}

@@ -83,6 +83,7 @@
     const n = pin.items.length;
 
     if (pin.type === 'track') {
+      if (pin.viewport.scrollLeft) pin.viewport.scrollLeft = 0; // fallback where overflow:clip is unsupported
       const max = pin.track.scrollWidth - pin.viewport.clientWidth;
       pin.track.style.transform = `translate3d(${(-p * max).toFixed(1)}px,0,0)`;
       setIndex(pin, Math.round(p * (n - 1)));
