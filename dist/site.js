@@ -4,7 +4,7 @@ window.CF = (() => {
   // 有 LINE 官方帳號連結時填入，所有「加入 LINE」按鈕才會出現。
   const LINE_URL = '';
   // 表單送出的 API 位址；留空時為示意模式（直接視為送出成功）。
-  const FORM_ENDPOINT = '';
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxAh8q-xPeahP4YTg6j9AKHtzUPA9RDNvfMRbF87C1Si4FC-yRxOnMex8WmSqU5PEJg/exec';
   const STORE_KEY = 'combflo.check.v1';
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;

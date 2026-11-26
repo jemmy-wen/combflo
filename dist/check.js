@@ -403,8 +403,9 @@
     btn.textContent = '送出中…';
     try {
       if (FORM_ENDPOINT) {
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-        if (!res.ok) throw new Error(res.status);
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+        const out = await res.json().catch(() => null);
+        if (!res.ok || !out || out.ok !== true) throw new Error((out && out.error) || res.status);
       } else {
         await new Promise(r => setTimeout(r, 700)); // demo mode
       }

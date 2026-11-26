@@ -203,16 +203,6 @@
           </div>
 
           <fieldset class="field chips-field">
-            <legend>方便聯絡的時段<em class="optional">選填</em></legend>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="time" value="平日上午"><span>平日上午</span></label>
-              <label class="chip"><input type="radio" name="time" value="平日下午"><span>平日下午</span></label>
-              <label class="chip"><input type="radio" name="time" value="平日晚上"><span>平日晚上</span></label>
-              <label class="chip"><input type="radio" name="time" value="都可以"><span>都可以</span></label>
-            </div>
-          </fieldset>
-
-          <fieldset class="field chips-field">
             <legend>公司所在地<em>必填</em></legend>
             <div class="chips">
               <label class="chip"><input type="radio" name="city" value="台北市" required><span>台北市</span></label>
@@ -241,6 +231,23 @@
             <span>我同意時行創意僅為聯絡與評估是否適合試辦，使用我留下的資料。<a href="privacy.html" target="_blank" rel="noopener">隱私說明</a></span>
           </label>
           <small class="err" data-err="consent"></small>
+
+          <div data-nl style="display:grid;gap:14px">
+            <label class="consent">
+              <input type="checkbox" name="nl_opt">
+              <span class="box" aria-hidden="true"></span>
+              <span>我也想收到時行創意的電子報（流程梳理、產業趨勢等文章，以及案例、活動與服務資訊），可以隨時取消訂閱。<a href="https://ingsist.com/privacy" target="_blank" rel="noopener">隱私權政策</a></span>
+            </label>
+
+            <div class="field" data-nl-field hidden>
+              <label for="f-nl-email">Email<em>必填</em></label>
+              <input id="f-nl-email" name="nl_email" type="email" autocomplete="email" inputmode="email" maxlength="120">
+              <small class="err" data-nl-err></small>
+            </div>
+
+            <input type="text" name="nl_website" tabindex="-1" autocomplete="off" aria-hidden="true"
+                   style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          </div>
 
           <div class="submit-row">
             <button class="btn lg" type="submit" data-submit>留下聯絡方式</button>
@@ -286,5 +293,6 @@
 
 <script src="site.js"></script>
 <script src="check.js"></script>
+<script src="newsletter.js"></script>
 </body>
 </html>
