@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{position:relative;background:#e6f0ee;font-family:'Noto Sans TC',sans-serif;color:#223e3c}
+.scene{position:absolute;left:-40px;width:1280px;bottom:-78px}
+.wash{position:absolute;inset:0;background:linear-gradient(to bottom,#e6f0ee 0%,#e6f0eef2 36%,#e6f0ee80 50%,transparent 62%)}
+.cloud{position:absolute;opacity:.9}
+.copy{position:absolute;top:40px;left:0;right:0;text-align:center}
+.logo{height:62px;display:block;margin:0 auto}
+h1{margin-top:10px;font-size:64px;line-height:1.3;font-weight:900;letter-spacing:.03em}
+.accent{position:relative;color:#32655a;z-index:0}
+.accent:after{content:'';position:absolute;left:-4px;right:-4px;bottom:8px;height:16px;background:#e9bc61;z-index:-1;border-radius:4px}
+.sub{display:inline-block;margin-top:16px;padding:10px 26px;border-radius:999px;background:#fffdf5;box-shadow:0 10px 24px -12px #223e3c55;font-size:23px;font-weight:700;color:#3e5c57;letter-spacing:.04em}
+.sub b{color:#c4582b}
+.ch{position:absolute;bottom:12px;height:262px;filter:drop-shadow(4px 0 0 #fffdf5) drop-shadow(-4px 0 0 #fffdf5) drop-shadow(0 4px 0 #fffdf5) drop-shadow(0 -4px 0 #fffdf5) drop-shadow(3px 5px 0 #223e3c40)}
+.paper{position:absolute;height:96px;filter:drop-shadow(0 8px 8px #223e3c30)}
+</style></head><body>
+<img class="scene" src="../../dist/assets/factory-hero.png">
+<div class="wash"></div>
+<img class="cloud" src="../../dist/assets/h-01-cloud-large-v1.png" style="left:-40px;top:200px;width:210px">
+<img class="cloud" src="../../dist/assets/h-02-cloud-small-v1.png" style="right:-10px;top:60px;width:150px">
+<img class="paper" src="../../dist/assets/h-04-order-v1.png" style="left:120px;top:70px;transform:rotate(-10deg)">
+<img class="paper" src="../../dist/assets/h-05-spreadsheet-v1.png" style="right:118px;top:150px;transform:rotate(9deg)">
+<div class="copy">
+  <img class="logo" src="../../dist/logo.svg">
+  <h1>拒絕沒有效率<br>多一點「<span class="accent">有效產能</span>」</h1>
+  <p class="sub">9 題免費流程盤點・約 5 分鐘・看看你的工廠是哪一型</p>
+</div>
+<img class="ch" src="../../dist/assets/craftsman-approved.png" style="left:40px">
+<img class="ch" src="../../dist/assets/rc-02-office-v1.png" style="left:190px;height:250px">
+<img class="ch" src="../../dist/assets/rc-03-owner-v1.png" style="right:190px">
+<img class="ch" src="../../dist/assets/rc-04-successor-v1.png" style="right:40px">
+</body></html>

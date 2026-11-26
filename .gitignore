@@ -12,3 +12,7 @@ pending-image-jobs.json
 four-characters-complete.jpg
 illustrations-batch-01.jpg
 hero-approved-character.jpg
+
+# internal notes / local-only previews (contain names or local paths)
+/20*.md
+edm/combflo-edm-preview.html

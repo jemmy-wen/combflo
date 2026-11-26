@@ -28,7 +28,7 @@
   ];
   const N = QUESTIONS.length;
   /* illustration-files:start */
-  const ILLUSTRATION_FILES = {"I-01": "assets/i-01-v1.png", "I-02": "assets/i-02-v1.png", "I-03": "assets/i-03-v1.png", "I-04": "assets/i-04-v1.png", "I-05": "assets/i-05-v1.png", "I-06": "assets/i-06-v1.png", "I-08": "assets/i-08-v1.png", "I-10": "assets/i-10-v1.png", "I-11": "assets/i-11-v1.png", "I-12": "assets/i-12-v1.png", "I-07": "assets/i-10-v1.png", "I-09": "assets/h-05-spreadsheet-v1.png"};
+  const ILLUSTRATION_FILES = {"I-01": "assets/web/i-01-v1.png", "I-02": "assets/web/i-02-v1.png", "I-03": "assets/web/i-03-v1.png", "I-04": "assets/web/i-04-v1.png", "I-05": "assets/web/i-05-v1.png", "I-06": "assets/web/i-06-v1.png", "I-08": "assets/web/i-08-v1.png", "I-10": "assets/web/i-10-v1.png", "I-11": "assets/web/i-11-v1.png", "I-12": "assets/web/i-12-v1.png", "I-07": "assets/web/i-10-v1.png", "I-09": "assets/web/h-05-spreadsheet-v1.png"};
   /* illustration-files:end */
 
   const TIPS = {
@@ -45,25 +45,25 @@
       daily: '熟手的現場經驗，是工廠的重要資產。流程大多靠熟手記得，工具以紙本、LINE、Excel 為主。',
       guide: '先把關鍵流程寫下來，定出誰負責什麼。',
       first: '選一個最依賴熟手的環節，把步驟、負責人和例外處理整理成一頁。',
-      priority: '讓經驗能交接', img: 'assets/craftsman-approved.png', slot: 'RC-01', slotDesc: '工廠師傅' },
+      priority: '讓經驗能交接', img: 'assets/web/craftsman-approved.png', slot: 'RC-01', slotDesc: '工廠師傅' },
     2: { name: '工具收集型', role: '工具整合手', tint: 'var(--t2)', tags: ['工具不少', '資料搬運', '等待串接'],
       summary: '買了不少工具，但彼此對不上，資料要靠人搬來搬去。',
       daily: '已經願意使用數位工具，也累積了一些基礎。用了多個工具，資料要靠人搬來搬去，流程也還沒定。',
       guide: '先釐清流程，再決定哪些工具留下、哪些整合。',
       first: '追一張訂單，列出資料經過哪些工具、在哪裡重填，再找出要保留的主資料。',
-      priority: '先釐清再整合', img: 'assets/rc-02-office-v1.png', slot: 'RC-02', slotDesc: '辦公室人員' },
+      priority: '先釐清再整合', img: 'assets/web/rc-02-office-v1.png', slot: 'RC-02', slotDesc: '辦公室人員' },
     3: { name: '流程明白型', role: '流程領航員', tint: 'var(--t3)', tags: ['分工清楚', '有章可循', '工具待補'],
       summary: '想清楚了，工具還沒跟上。',
       daily: '流程已有共識，這是選工具時很好的起點。流程大致有文件，但還靠紙本或 Excel 在跑。',
       guide: '挑最耗時的一兩個環節，補上合適的工具。',
       first: '挑一個最耗時的紙本或試算表步驟，先試一項能減少重填的小工具。',
-      priority: '補上合適工具', img: 'assets/rc-03-owner-v1.png', slot: 'RC-03', slotDesc: '工廠老闆' },
+      priority: '補上合適工具', img: 'assets/web/rc-03-owner-v1.png', slot: 'RC-03', slotDesc: '工廠老闆' },
     4: { name: '蓄勢待發型', role: '自動化先鋒', tint: 'var(--t4)', tags: ['流程明確', '資料集中', '準備加速'],
       summary: '流程明確、資料大致集中，可以往自動化走了。',
       daily: '流程與資料已有基礎，可以開始評估更進一步的串接。流程明確，資料大致集中。',
       guide: '找出重複性最高的環節，評估自動化或 AI。',
       first: '找一個規則清楚、重複性高的步驟，小範圍試跑，再確認省下的時間與例外情況。',
-      priority: '小範圍試自動化', img: 'assets/rc-04-successor-v1.png', slot: 'RC-04', slotDesc: '二代接班人' },
+      priority: '小範圍試自動化', img: 'assets/web/rc-04-successor-v1.png', slot: 'RC-04', slotDesc: '二代接班人' },
   };
 
   // ================= Scoring =================

@@ -8,7 +8,7 @@
 .section-head.row .h2{margin-bottom:0}
 
 /* ---------- HERO ---------- */
-.ap-tile:has(img){background-image:url('assets/a-00-v1.png');background-repeat:repeat;background-size:256px 256px;image-rendering:pixelated;outline:none}
+.ap-tile:has(img){background-image:url('assets/web/a-00-v1.png');background-repeat:repeat;background-size:256px 256px;image-rendering:pixelated;outline:none}
 .ap-tile:has(img)>img{display:none}
 .hero{--sink:min(0px,calc((100vh - 900px) * .5));--sink:min(0px,calc((100svh - 900px) * .5));position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:var(--sky);isolation:isolate}
 .hero-layer{position:absolute;inset:0;pointer-events:none;will-change:transform}
@@ -290,16 +290,21 @@
   .step-card h3{font-size:16px}
 }
 @media (max-width:860px){
-  .hero{min-height:600px}
-  .hero-copy{padding-top:calc(var(--hdr) + 24px)}
+  /* phones: at least one screen tall, but always keep room under the copy for the scene + guide,
+     so short in-app browser viewports grow instead of stacking the guide on the CTA */
+  .hero{height:auto;min-height:100vh;min-height:100svh}
+  .hero-copy{padding-top:calc(var(--hdr) + 24px);padding-bottom:250px}
   .hero h1{font-size:clamp(32px,8.6vw,46px);margin-top:16px}
   .hero-description{font-size:14px;max-width:340px}
   .br-desk{display:none}
   .factory-scene{width:175%;left:-37.5%;bottom:-10px}
   .scene-wash{background:linear-gradient(to bottom,var(--sky) 0%,#e6f0eefa 38%,#e6f0ee66 54%,transparent 70%)}
-  .guide{left:3%;bottom:76px;width:150px}
-  .guide>img{height:170px}
-  .bubble{padding:9px 13px}
+  /* guide: bubble beside the head (tail pointing left) instead of on top */
+  .guide{left:3%;bottom:70px;width:auto;flex-direction:row-reverse;align-items:flex-start;gap:6px}
+  .guide>img{height:150px}
+  .bubble{margin:4px 0 0;padding:8px 12px}
+  .bubble::after{left:-8px;top:16px;bottom:auto;width:10px;height:14px;clip-path:polygon(100% 0,100% 100%,0 30%)}
+  .bubble small{font-size:9px}
   .bubble p{font-size:12px}
   .hero-cloud.c1{display:none}
   .hero-cloud.c2{width:96px;height:44px;top:56%;right:5%}
