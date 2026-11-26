@@ -334,7 +334,7 @@
   saveBtn.addEventListener('click', async () => {
     const label = saveBtn.textContent;
     saveBtn.textContent = '產生圖片中…';
-    saveBtn.classList.add('loading');
+    saveBtn.classList.add('is-busy');
     try {
       if (!window.html2canvas) {
         await new Promise((res, rej) => {
@@ -355,7 +355,7 @@
     } catch {
       saveBtn.textContent = '儲存失敗，請稍後再試';
     } finally {
-      saveBtn.classList.remove('loading');
+      saveBtn.classList.remove('is-busy');
       setTimeout(() => { saveBtn.textContent = label; }, 2400);
     }
   });
@@ -394,12 +394,13 @@
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    if ($('[data-submit]').classList.contains('is-busy')) return; // 送出中，不重複送
     fail.hidden = true;
     if (!validate()) return;
     const fd = Object.fromEntries(new FormData(form));
     const payload = { ...fd, answers: state.answers, result: state.result };
     const btn = $('[data-submit]');
-    btn.classList.add('loading');
+    btn.classList.add('is-busy');
     btn.textContent = '送出中…';
     try {
       if (FORM_ENDPOINT) {
@@ -421,7 +422,7 @@
         : '送出沒有成功，請稍後再試一次。';
       fail.hidden = false;
     } finally {
-      btn.classList.remove('loading');
+      btn.classList.remove('is-busy');
       btn.textContent = '留下聯絡方式';
     }
   });
