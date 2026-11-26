@@ -28,7 +28,7 @@
     stage: el.querySelector('.pin-stage'),
     items: [...el.querySelectorAll('[data-item]')],
     scenes: [...el.querySelectorAll('[data-scene]')],
-    dots: [...el.querySelectorAll('.pager-dots i')],
+    dots: [...el.querySelectorAll('.pager-dots button')],
     current: el.querySelector('[data-current]'),
     track: el.querySelector('.track'),
     viewport: el.querySelector('.track-viewport'),
@@ -104,18 +104,28 @@
     pin.walkTimer = setTimeout(() => pin.walker.classList.remove('walking', 'back'), 220);
   }
 
+  // Scroll so that item i of a pinned section becomes the active one
+  function goToItem(pin, i) {
+    const top = pin.el.getBoundingClientRect().top + scrollY - pinTop(pin);
+    const dist = pin.el.offsetHeight - pin.stage.offsetHeight;
+    scrollTo({ top: top + dist * ((i + .5) / pin.items.length), behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+
   // Click a step → scroll to its segment
   pins.filter(p => p.type === 'steps').forEach(pin => {
     [...pin.items, ...pin.scenes].forEach((it, k) => {
       const i = k % pin.items.length;
       it.style.cursor = 'pointer';
-      it.addEventListener('click', () => {
-        if (!isPinned(pin)) return;
-        const top = pin.el.getBoundingClientRect().top + scrollY - pinTop(pin);
-        const dist = pin.el.offsetHeight - pin.stage.offsetHeight;
-        scrollTo({ top: top + dist * ((i + .5) / pin.items.length), behavior: 'smooth' });
-      });
+      it.addEventListener('click', () => { if (isPinned(pin)) goToItem(pin, i); });
     });
+  });
+
+  // Click a pager dot → switch to that card
+  pins.forEach(pin => {
+    pin.dots.forEach((d, i) => d.addEventListener('click', () => {
+      if (isPinned(pin)) goToItem(pin, i);
+      else pin.items[i]?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    }));
   });
 
   // ---------- Count-up numbers ----------

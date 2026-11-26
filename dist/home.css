@@ -65,8 +65,11 @@
 .pager-num{font:400 14px var(--pixel);color:var(--muted)}
 .pager-num b{font-weight:400;color:var(--ink);font-size:22px}
 .pager-dots{display:flex;gap:6px}
-.pager-dots i{width:10px;height:10px;border-radius:var(--pill);background:#223e3c22;transition:width .45s var(--ease),background-color .3s}
-.pager-dots i.on{width:34px;background:var(--orange)}
+.pager-dots button{position:relative;width:10px;height:10px;padding:0;border:0;border-radius:var(--pill);background:#223e3c22;cursor:pointer;transition:width .45s var(--ease),background-color .3s}
+.pager-dots button::before{content:"";position:absolute;inset:-10px -3px}
+.pager-dots button:hover:not(.on){background:#223e3c55}
+.pager-dots button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.pager-dots button.on{width:34px;background:var(--orange)}
 
 .deck-wrap{position:relative;padding-top:40px}
 .deck{position:relative;height:min(450px,58svh)}
