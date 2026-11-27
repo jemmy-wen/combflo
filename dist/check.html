@@ -245,8 +245,8 @@
               <small class="err" data-nl-err></small>
             </div>
 
-            <input type="text" name="nl_website" tabindex="-1" autocomplete="off" aria-hidden="true"
-                   style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <!-- 防機器人欄位：用 display:none 完全隱藏，瀏覽器自動填入才不會填到它（填了會被當成機器人而不寫入） -->
+            <input type="text" name="nl_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           </div>
 
           <div class="submit-row">
